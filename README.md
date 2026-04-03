@@ -7,14 +7,14 @@ Remove silent parts from video recordings.
 ### GUI App (macOS)
 
 ```bash
-brew tap popstas/talks-reducer-homebrew-tap
+brew tap popstas/talks-reducer
 brew install --cask talks-reducer
 ```
 
 ### CLI Tool
 
 ```bash
-brew install popstas/talks-reducer-homebrew-tap/talks-reducer
+brew install popstas/talks-reducer/talks-reducer
 ```
 
 ## More Information
