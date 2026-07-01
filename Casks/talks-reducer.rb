@@ -1,6 +1,6 @@
 cask "talks-reducer" do
-  version "0.20.1"
-  sha256 "20c59e407edf4d6b9f95b294c467e1881593698413dc2bd8ba10ac71c4b42cb8"
+  version "0.20.2"
+  sha256 "efde107c10a8097db2597342ade802fc259354a404c7e12a00c8b569fc73eede"
 
   url "https://github.com/popstas/talks-reducer/releases/download/v#{version}/talks-reducer-macos.app-#{version}.zip"
   name "Talks Reducer"
