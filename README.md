@@ -3,12 +3,14 @@
 Homebrew tap for macOS apps by [popstas](https://github.com/popstas).
 
 ```bash
+brew trust --tap popstas/apps
 brew install --cask popstas/apps/talks-reducer
 brew install --cask --no-quarantine popstas/apps/ccfzf-picker
 ```
 
-`brew install user/tap/token` taps the repository on its own — a separate
-`brew tap` is not needed.
+Homebrew 6.0.0+ refuses to load a cask from a third-party tap until the tap is
+trusted, so `brew trust` comes first — once per tap, not per app. No separate
+`brew tap` is needed: `brew install user/tap/token` taps the repository itself.
 
 | App | What it does |
 | --- | --- |
