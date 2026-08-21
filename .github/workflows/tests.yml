@@ -1,0 +1,32 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  audit:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: Homebrew/actions/setup-homebrew@master
+
+      # brew style и brew audit адресуют тап по имени, а не по пути к файлу,
+      # поэтому чекаут надо сначала подсунуть в Library/Taps.
+      - name: Tap this checkout
+        run: |
+          set -euo pipefail
+          TAP_DIR="$(brew --repository)/Library/Taps/popstas/homebrew-apps"
+          mkdir -p "$(dirname "$TAP_DIR")"
+          ln -s "$GITHUB_WORKSPACE" "$TAP_DIR"
+
+      - name: brew style
+        run: brew style popstas/apps
+
+      # Без --online намеренно: каска, чья версия ещё не вышла релизом, держит
+      # url на несуществующий ассет, и сетевая проверка красила бы сборку за
+      # то, что чинится следующим тегом соседнего репозитория.
+      - name: brew audit
+        run: brew audit --cask --tap=popstas/apps

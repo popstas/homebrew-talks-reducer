@@ -1,33 +1,33 @@
-# Homebrew Tap for talks-reducer
+# popstas/apps
 
-Remove silent parts from video recordings.
-
-## Installation
-
-### GUI App (macOS)
+Homebrew tap for macOS apps by [popstas](https://github.com/popstas).
 
 ```bash
-brew tap popstas/talks-reducer
-brew install --cask talks-reducer
+brew install --cask popstas/apps/talks-reducer
+brew install --cask --no-quarantine popstas/apps/ccfzf-picker
 ```
 
-> **Note:** The app is not signed with an Apple Developer ID. macOS may show a
-> Gatekeeper warning on first launch. To allow it, go to
-> **System Settings > Privacy & Security** and click **"Open Anyway"**.
+`brew install user/tap/token` taps the repository on its own — a separate
+`brew tap` is not needed.
 
-### CLI Tool
+| App | What it does |
+| --- | --- |
+| [talks-reducer](https://github.com/popstas/talks-reducer) | Removes silent parts from video recordings |
+| [ccfzf-picker](https://github.com/popstas/ccfzf-picker) | Picker for Claude Code sessions living on this and other machines |
 
-```bash
-pipx install talks-reducer
-```
+## Gatekeeper
 
-Or with pip:
+None of these apps is signed with an Apple Developer ID.
 
-```bash
-pip install talks-reducer
-```
+`ccfzf-picker` needs `--no-quarantine`, otherwise Gatekeeper refuses it with a
+"damaged" message that looks like a broken build rather than a missing
+signature. `talks-reducer` installs normally and only warns on first launch —
+allow it in **System Settings > Privacy & Security > Open Anyway**.
 
-## More Information
+`ccfzf-picker` is Apple Silicon only.
 
-- [talks-reducer on GitHub](https://github.com/popstas/talks-reducer)
-- [talks-reducer on PyPI](https://pypi.org/project/talks-reducer/)
+## Updates
+
+Casks are rewritten by the release workflow of the app's own repository:
+version and sha256 are replaced on every tag. Editing them here by hand lasts
+until the next release.
